@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('lux.layout.admin')
 
 @section('content')
 <div class="container">

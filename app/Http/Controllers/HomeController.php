@@ -23,6 +23,28 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('lux.home',['header' => 'Dashboard']);
     }
+
+    public function sorts()
+    {
+        return view('lux.tree',['header' => 'Variedades']);
+    }
+    public function clients()
+    {
+        return view('lux.vew',['header' => 'Clientes']);
+    }
+    public function plants()
+    {
+        return view('lux.vew',['header' => 'Fincas']);
+    }
+    public function misc()
+    {
+        return view('lux.vew',['header' => 'Cargueras']);
+    }
+    public function stand()
+    {
+        return view('lux.vew',['header' => 'Standing']);
+    }
+
 }

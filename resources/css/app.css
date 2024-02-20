@@ -37,3 +37,6 @@ ul, #myUL {
 .active {
     display: block;
 }
+.navbar .navbar-brand-wrapper .navbar-brand-inner-wrapper .navbar-brand img {
+    width: 34px;
+}
