@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -45,6 +46,12 @@ class HomeController extends Controller
     public function stand()
     {
         return view('lux.vew',['header' => 'Standing']);
+    }
+    public function task()
+    {
+        $userId = request('user_id'); // Access the user_id parameter from the request
+        $tran = Transaction::where('paid_to', $userId)->sum('amount')-Transaction::where('paid_by', $userId)->sum('amount');
+        return view('lux.task',['header' => 'International Service Management', 'model' => json_encode([$userId,$tran])]);
     }
 
 }

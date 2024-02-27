@@ -19,12 +19,13 @@ Route::get('/', function () {
 });
 
 Route::controller(HomeController::class)->group(function () {
-    Route::get('/home', 'index')->name('home');
+    Route::get('/home/', 'index')->name('home');
     Route::get('/sorts', 'sorts')->name('sorts');
     Route::get('/clients', 'clients')->name('clients');
     Route::get('/plants', 'plants')->name('plants');
     Route::get('/misc', 'misc')->name('misc');
     Route::get('/stand', 'stand')->name('stand');
+    Route::get('/task', 'task')->name('task');
 });
 
 Route::prefix('admin')->group(
