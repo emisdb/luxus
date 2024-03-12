@@ -11,9 +11,21 @@ class PropertyDataController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+
+    protected $propertyData;
+
+    public function __construct(PropertyData $propertyData)
     {
-        return PropertyDataResource::collection(PropertyData::all());
+        $this->propertyData = $propertyData;
+    }
+
+    public function index(Request $request)
+    {
+        $filters = $request->only($this->propertyData->getFilters());
+
+        $properties = $this->propertyData->search($filters);
+
+        return PropertyDataResource::collection($properties);
     }
 
     /**

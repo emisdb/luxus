@@ -24,4 +24,5 @@ class PropertyDataResource extends JsonResource
             'garages' => $this->garages,
          ];
     }
+
 }
