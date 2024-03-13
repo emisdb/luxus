@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Builder;
 
 class PropertyData extends Model
 {
-    public $filters = [
+    protected $filters = [
         'name' => 'name',
         'price' => ['min_price', 'max_price'],
         'bedrooms' => 'bedrooms',
@@ -16,6 +16,10 @@ class PropertyData extends Model
         'storeys' => 'storeys',
         'garages' => 'garages',
     ];
+    protected $likes = [
+        'name'
+        ];
+
     protected $fillable;
     protected $filtersToFields = [];
 
@@ -80,7 +84,11 @@ class PropertyData extends Model
                     }
                 }
             } else {
-                $query->where($filterField, $filter);
+                if(in_array($filterField,$this->likes)){
+                    $query->where($filterField, 'like', '%' . trim($filter). '%');
+                } else {
+                    $query->where($filterField, $filter);
+                }
             }
         }
         return $query;
@@ -102,7 +110,6 @@ class PropertyData extends Model
                 }
             } else {
                 if ($field == $filter) {
-
                     $this->filtersToFields[$field] = $value;
                     return;
                 }

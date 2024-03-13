@@ -45,7 +45,7 @@ class HomeController extends Controller
     }
     public function stand()
     {
-        return view('lux.vew',['header' => 'Standing']);
+        return view('lux.search',['header' => 'Standing']);
     }
     public function task()
     {

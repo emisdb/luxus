@@ -29,7 +29,8 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @livewireStyles
+{{--    @vite('resources/css/app.css')--}}
+{{--    @livewireStyles--}}
 </head>
 <body>
 <div class="container-scroller">
@@ -44,7 +45,8 @@
         </div>
     </div>
 </div>
-@livewireScripts
+{{--@vite('resources/js/app.js')--}}
+{{--@livewireScripts--}}
 <!-- container-scroller -->
 
 <!-- plugins:js -->

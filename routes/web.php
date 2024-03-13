@@ -13,6 +13,11 @@ use App\Http\Controllers\HomeController;
 |
 */
 Auth::routes();
+/*
+Route::view('/{any}', 'home')
+    ->middleware(['auth'])
+    ->where('any', '.*');
+*/
 
 Route::get('/', function () {
     return view('home');

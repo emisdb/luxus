@@ -13,11 +13,19 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    {{ __('You are logged in!') }}
+                        <div id="app">
+                            <ex-component></ex-component>
+                        </div>
+                    {{ __('You are logged in here !') }}
                 </div>
             </div>
         </div>
     </div>
 </div>
 @endsection
+<script>
+    import ExampleComponent from "../../js/components/ExampleComponent";
+    export default {
+        components: {ExampleComponent}
+    }
+</script>
