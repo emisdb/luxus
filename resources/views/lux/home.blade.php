@@ -14,7 +14,7 @@
                         </div>
                     @endif
                         <div id="app">
-                            <ex-component></ex-component>
+                            <router-view></router-view>
                         </div>
                     {{ __('You are logged in here !') }}
                 </div>

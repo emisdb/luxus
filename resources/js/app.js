@@ -10,16 +10,16 @@ const router = createRouter({
     history: createWebHistory(),
     routes: [
         { path: '/home', component: ExampleIndex },
+        { path: '/', component: ExampleIndex },
         { path: '/stand', component: SearchIndex },
         // Add more routes as needed for other pages
     ],
 });
 const app = createApp({});
-app.component('ex-component', ExampleIndex )
-app.component('search-component', SearchIndex )
-// Create the Vue app instance
+//app.component('ex-component', ExampleIndex )
+//app.component('search-component', SearchIndex )
 
-//app.use(router);
+app.use(router);
 
 // Mount the app to the HTML element with the id 'app'
 app.mount('#app');

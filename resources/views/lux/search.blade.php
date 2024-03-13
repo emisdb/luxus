@@ -9,7 +9,7 @@
 
                 <div class="card-body">
                     <div id="app">
-                        <search-component></search-component>
+                        <router-view></router-view>
                     </div>
                 </div>
             </div>

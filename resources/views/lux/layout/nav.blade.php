@@ -4,7 +4,7 @@
             <a class="navbar-brand brand-logo" href="{{ route('home') }}"><img src="images/icolux.png"
                                                                       alt="logo"/>{{ config('app.name', 'Laravel') }}
             </a>
-            <a class="navbar-brand brand-logo-mini" href="index.html"><img src="admin/images/logo-mini.svg" alt="logo"/></a>
+            <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/icolux.png" alt="logo"/></a>
             <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
                 <span class="mdi mdi-sort-variant"></span>
             </button>
