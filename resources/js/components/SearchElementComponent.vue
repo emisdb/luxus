@@ -76,7 +76,6 @@ export default {
         search() {
             this.searching = true;
             // Construct the query based on the values in the input fields
-            setTimeout(() => {
                 const query = Object.entries(this.filters)
                 .filter(([key, value]) => value !== null && value !== '')
                 .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
@@ -92,7 +91,6 @@ export default {
                     console.error('Error fetching data:', error);
                 });
             this.searching = false;
-            }, 2000); // Simulate 1-second delay (replace with actual API call)
         }
     }
 }
