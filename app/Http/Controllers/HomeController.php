@@ -43,6 +43,10 @@ class HomeController extends Controller
     {
         return view('lux.search',['header' => 'Search']);
     }
+    public function search()
+    {
+        return view('lux.search',['header' => 'Element Search']);
+    }
     public function stand()
     {
         return view('lux.search',['header' => 'Advanced Search']);

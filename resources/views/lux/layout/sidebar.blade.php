@@ -8,8 +8,14 @@
           </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('stand') }}">
-                    <i class="mdi mdi-grid-large menu-icon"></i>
+                    <i class="mdi mdi mdi-table-large menu-icon"></i>
                     <span class="menu-title">Search</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('search') }}">
+                    <i class="mdi mdi-table menu-icon"></i>
+                    <span class="menu-title">Element Search</span>
                 </a>
             </li>
             <li class="nav-item">

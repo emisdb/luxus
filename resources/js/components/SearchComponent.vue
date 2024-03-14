@@ -1,9 +1,8 @@
 <!-- SearchComponent.vue -->
 <template>
-    <div>
+     <div>
         <input type="text" v-model="query" placeholder="Search query">
-        <button @click="search">Search</button>
-
+        <el-button @click="search">{{ message }}</el-button>
         <table v-if="results.length">
             <thead>
             <tr>
@@ -27,14 +26,19 @@
             </tbody>
         </table>
     </div>
+
 </template>
 
 <script>
+import { defineComponent } from 'vue'
+import { ElConfigProvider } from 'element-plus'
+
 export default {
     data() {
         return {
             query: '',
-            results: []
+            results: [],
+            message: 'Search'
         }
     },
     methods: {
@@ -51,4 +55,15 @@ export default {
         }
     }
 }
+defineComponent({
+    components: {
+        ElConfigProvider,
+    },
+    setup() {
+        return {
+            zIndex: 3000,
+            size: 'small',
+        }
+    },
+})
 </script>

@@ -22,6 +22,9 @@ Route::view('/{any}', 'home')
 Route::get('/', function () {
     return view('home');
 });
+Route::get('/ele', function () {
+    return view('element.message');
+});
 
 Route::controller(HomeController::class)->group(function () {
     Route::get('/home/', 'index')->name('home');
@@ -29,6 +32,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/clients', 'clients')->name('clients');
     Route::get('/plants', 'plants')->name('plants');
     Route::get('/misc', 'misc')->name('misc');
+    Route::get('/search', 'search')->name('search');
     Route::get('/stand', 'stand')->name('stand');
     Route::get('/task', 'task')->name('task');
 });

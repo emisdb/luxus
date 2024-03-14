@@ -4,6 +4,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import ExampleIndex from '@/components/ExampleComponent.vue';
 import SearchIndex from '@/components/SearchComponent.vue';
 import AdvSearchIndex from '@/components/SearchAdvancedComponent.vue';
+import ElementSearchIndex from '@/components/SearchElementComponent.vue';
 
 
 // Create the Vue Router instance
@@ -14,6 +15,7 @@ const router = createRouter({
         { path: '/', component: ExampleIndex },
         { path: '/stand', component: AdvSearchIndex },
         { path: '/misc', component: SearchIndex },
+        { path: '/search', component: ElementSearchIndex },
         // Add more routes as needed for other pages
     ],
 });
