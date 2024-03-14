@@ -32,4 +32,11 @@ Two frontend pages were created.
 - Component [SearchElementComponent](https://github.com/emisdb/luxus/blob/master/resources/js/components/SearchElementComponent.vue) was created for the table display in the Element UI.
 
 ## Results on the web
-- To see the Native Vue 3 solution
+- To see the Native Vue 3 solution go to [my test platform](https://luxus.emisdb.ru/stand)
+- To see the same solution in Element UI go [here](https://luxus.emisdb.ru/search)
+- API endpoint is also [accessible](https://luxus.emisdb.ru/api/property-data)
+- Credentials 
+  - user: dentsi@yahoo.com
+  - password: 1q2w3e4r
+- You can jump to these pages from the sidebar menu: Search, Element Search
+
