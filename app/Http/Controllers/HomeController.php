@@ -41,11 +41,11 @@ class HomeController extends Controller
     }
     public function misc()
     {
-        return view('lux.vew',['header' => 'Cargueras']);
+        return view('lux.search',['header' => 'Search']);
     }
     public function stand()
     {
-        return view('lux.search',['header' => 'Standing']);
+        return view('lux.search',['header' => 'Advanced Search']);
     }
     public function task()
     {

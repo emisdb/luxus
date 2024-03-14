@@ -3,7 +3,6 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __($header) }}</div>
 
@@ -87,7 +86,7 @@
                     </ul>
                 </div>
             </div>
-            </div>
+
         </div>
     </div>
     <script>
@@ -95,7 +94,7 @@
         var i;
 
         for (i = 0; i < toggler.length; i++) {
-            toggler[i].addEventListener("click", function() {
+            toggler[i].addEventListener("click", function () {
                 this.parentElement.querySelector(".nested").classList.toggle("active");
                 this.classList.toggle("caret-down");
             });
