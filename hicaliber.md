@@ -8,16 +8,13 @@ This test was accomplished in the environment of my test platform that is availa
 The task was completed in the Laravel framework with the use of the best practices for this framework following the SOLID principles.
 
 ## Backend
-- On the  basis of [cvs](https://github.com/emisdb/luxus/blob/master/database/property-data.csv) file [migration](https://github.com/emisdb/luxus/blob/master/database/migrations/2024_03_12_114751_create_property_data_table.php) and [seeder](https://github.com/emisdb/luxus/blob/master/database/seeders/PropertyDataSeeder.php) were built. The [SQL dump file](https://github.com/emisdb/luxus/blob/master/database/property_data.sql) for the created table also available.  
+- On the  basis of [csv](https://github.com/emisdb/luxus/blob/master/database/property-data.csv) file [migration](https://github.com/emisdb/luxus/blob/master/database/migrations/2024_03_12_114751_create_property_data_table.php) and [seeder](https://github.com/emisdb/luxus/blob/master/database/seeders/PropertyDataSeeder.php) were built. The [SQL dump file](https://github.com/emisdb/luxus/blob/master/database/property_data.sql) for the created table also available.  
 - The model [PropertyData](https://github.com/emisdb/luxus/blob/master/app/Models/PropertyData.php) was built for the data access and management. Business Logic was encapsulated here.
 - The resource [PropertyDataResource](https://github.com/emisdb/luxus/blob/master/app/Http/Resources/PropertyDataResource.php) for data formatting
 - The controller  [PropertyDataController](https://github.com/emisdb/luxus/blob/master/app/Http/Controllers/PropertyDataController.php)
 - The rout file [api.php](https://github.com/emisdb/luxus/blob/master/routes/api.php) was edited for the purpose of api route registering.
 
-The necessary API was provided for the test application. 
-I suppose that the most of the business logic should be moves to the service and registered  in the servise provider. 
-But considering the size of application I desided avoid producing unnecessay modules.
-
+The required API has been provided for the test application. I believe that the majority of the business logic should be transferred to the service layer and registered within the service provider. However, given the application's size, I have opted to refrain from creating unnecessary modules.
 ## Frontend
 Two frontend pages were created.
 ### Native Vue 3 solution
