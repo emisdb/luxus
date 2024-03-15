@@ -2,7 +2,7 @@
     <div class="table-responsive pt-3">
         <el-button type="primary" :icon="Search" @click="search" class="searcher">Search</el-button>
 
-        <el-table :data="results"  style="width: 100%">
+        <el-table :data="results" style="width: 100%">
             <el-table-column prop="name" width="180">
                 <template #header>
                     <el-input
@@ -54,7 +54,7 @@
 <script>
 import {defineComponent} from 'vue'
 import {ElConfigProvider} from 'element-plus'
-import { Search} from '@element-plus/icons-vue'
+import {Search} from '@element-plus/icons-vue'
 
 export default {
     data() {
@@ -73,24 +73,25 @@ export default {
         }
     },
     methods: {
-        search() {
+        async search() {
             this.searching = true;
             // Construct the query based on the values in the input fields
-                const query = Object.entries(this.filters)
+            const query = Object.entries(this.filters)
                 .filter(([key, value]) => value !== null && value !== '')
                 .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
                 .join('&');
 
-            // Make AJAX request to API
-            fetch(`/api/property-data?${query}`)
-                .then(response => response.json())
-                .then(data => {
-                    this.results = data.data;
-                })
-                .catch(error => {
-                    console.error('Error fetching data:', error);
-                });
-            this.searching = false;
+            try {
+                // Simulate API call (replace with actual API call)
+                const response = await fetch(`/api/property-data?${query}`);
+                const data = await response.json();
+                this.results = data.data;
+                this.searching = false;
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                // Set searching flag to false in case of error
+                this.searching = false;
+            }
         }
     }
 }

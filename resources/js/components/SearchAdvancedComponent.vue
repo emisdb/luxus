@@ -72,7 +72,7 @@ export default {
         }
     },
     methods: {
-        search() {
+        async search() {
             this.searching = true;
             // Construct the query based on the values in the input fields
             const query = Object.entries(this.filters)
@@ -80,16 +80,17 @@ export default {
                 .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
                 .join('&');
 
-            // Make AJAX request to API
-            fetch(`/api/property-data?${query}`)
-                .then(response => response.json())
-                .then(data => {
-                    this.results = data.data;
-                })
-                .catch(error => {
-                    console.error('Error fetching data:', error);
-                });
+            try {
+                // Simulate API call (replace with actual API call)
+                const response = await fetch(`/api/property-data?${query}`);
+                const data = await response.json();
+                this.results = data.data;
             this.searching = false;
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                // Set searching flag to false in case of error
+                this.searching = false;
+            }
         }
     }
 }
