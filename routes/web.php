@@ -40,6 +40,7 @@ Route::controller(HomeController::class)->group(function () {
 Route::prefix('admin')->group(
     function () {
         Route::get('dashboard',[App\Http\Controllers\AdminController::class, 'index'])->name('admin') ;
+        Route::get('tests',[App\Http\Controllers\HomeController::class, 'index'])->name('admin.home') ;
         Route::get('tree',[App\Http\Controllers\AdminController::class, 'tree'])->name('tree') ;
     }
 );

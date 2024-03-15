@@ -59,11 +59,17 @@
               </ul>
             </div>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="documentation/documentation.html">
-              <i class="mdi mdi-file-document-box-outline menu-icon"></i>
-              <span class="menu-title">Documentation</span>
-            </a>
-          </li>
+            <li class="nav-item">
+                <a class="nav-link" href="documentation/documentation.html">
+                    <i class="mdi mdi-file-document-box-outline menu-icon"></i>
+                    <span class="menu-title">Documentation</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('home') }}">
+                    <i class="mdi mdi-home menu-icon"></i>
+                    <span class="menu-title">Test panel</span>
+                </a>
+            </li>
         </ul>
       </nav>
