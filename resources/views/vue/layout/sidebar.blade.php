@@ -1,30 +1,30 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('home') }}">
+              <router-link class="nav-link" to="/vue/home">
               <i class="mdi mdi-view-dashboard menu-icon"></i>
               <span class="menu-title">Dashboard</span>
-            </a>
+              </router-link>
           </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('stand') }}">
+                <router-link class="nav-link" to="/vue/stand">
                     <i class="mdi mdi mdi-table-large menu-icon"></i>
                     <span class="menu-title">Search</span>
-                </a>
+                </router-link>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('search') }}">
+                <router-link class="nav-link" to="/vue/search">
                     <i class="mdi mdi-table menu-icon"></i>
                     <span class="menu-title">Element Search</span>
-                </a>
+                </router-link>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('sorts') }}">
-                    <i class="mdi mdi-flower menu-icon"></i>
-                    <span class="menu-title">Tree</span>
-                </a>
+                <router-link class="nav-link" to="/vue/misc">
+                    <i class="mdi mdi-gate menu-icon"></i>
+                    <span class="menu-title">Query Search</span>
+                </router-link>
             </li>
-             <li class="nav-item">
+            <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <i class="mdi mdi-circle-outline menu-icon"></i>
               <span class="menu-title">Misc</span>
@@ -32,7 +32,7 @@
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ route('vue') }}">Vue Tests</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('home') }}">Luxus</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{ url('/admin') }}">Documents</a></li>
               </ul>
             </div>

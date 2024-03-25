@@ -18,8 +18,8 @@ The required API has been provided for the test application. I believe that the 
 ## Frontend
 Two frontend pages were created.
 ### Native Vue 3 solution
-- [Blade view "search"](https://github.com/emisdb/luxus/blob/master/resources/views/lux/search.blade.php) was created
-- [Layout module "admin"](https://github.com/emisdb/luxus/blob/master/resources/views/lux/layout/admin.blade.php) was used to provide the Admin panel for test display
+- [Blade view "search"](https://github.com/emisdb/luxus/blob/master/resources/views/vue/search.blade.php) was created
+- [Layout module "admin"](https://github.com/emisdb/luxus/blob/master/resources/views/vue/layout/admin.blade.php) was used to provide the Admin panel for test display
 - [Vite config](https://github.com/emisdb/luxus/blob/master/vite.config.js) was ussed to provide vue dependancy
 - In the file [app.js](https://github.com/emisdb/luxus/blob/master/resources/js/app.js) all components and router were set.
 - Component [SearchAdvancedComponent](https://github.com/emisdb/luxus/blob/master/resources/js/components/SearchAdvancedComponent.vue) was created for the table display
@@ -29,7 +29,7 @@ Two frontend pages were created.
 - Component [SearchElementComponent](https://github.com/emisdb/luxus/blob/master/resources/js/components/SearchElementComponent.vue) was created for the table display in the Element UI.
 
 ## Results on the web
-- To see the Native Vue 3 solution go to [my test platform](https://luxus.emisdb.ru/stand)
+- To see the Native Vue 3 solution go to [my test platform](https://luxus.emisdb.ru/vue)
 - To see the same solution in Element UI go [here](https://luxus.emisdb.ru/search)
 - API endpoint is also [accessible](https://luxus.emisdb.ru/api/property-data)
 - Credentials 

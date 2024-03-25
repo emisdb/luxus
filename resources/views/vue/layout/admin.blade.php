@@ -34,14 +34,14 @@
 </head>
 <body>
 <div class="container-scroller">
-    @include('lux.layout.nav')
-    <div class="container-fluid page-body-wrapper">
-        @include('lux.layout.sidebar_lux')
+    @include('vue.layout.nav')
+    <div class="container-fluid page-body-wrapper" id="app">
+        @include('vue.layout.sidebar')
         <div class="main-panel">
             <div class="content-wrapper">
                 @yield('content')
             </div>
-            @include('lux.layout.footer')
+            @include('vue.layout.footer')
         </div>
     </div>
 </div>

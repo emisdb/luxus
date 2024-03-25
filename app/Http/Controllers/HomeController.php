@@ -51,6 +51,10 @@ class HomeController extends Controller
     {
         return view('lux.search',['header' => 'Advanced Search']);
     }
+    public function vue()
+    {
+        return view('vue.search',['header' => 'Vue Advanced Search']);
+    }
     public function task()
     {
         $userId = request('user_id'); // Access the user_id parameter from the request

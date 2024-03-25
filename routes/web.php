@@ -35,6 +35,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/search', 'search')->name('search');
     Route::get('/stand', 'stand')->name('stand');
     Route::get('/task', 'task')->name('task');
+    Route::get('/vue/{any?}', 'vue')->where('any', '.*')->name('vue');
 });
 
 Route::prefix('admin')->group(

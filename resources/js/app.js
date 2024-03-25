@@ -6,16 +6,15 @@ import SearchIndex from '@/components/SearchComponent.vue';
 import AdvSearchIndex from '@/components/SearchAdvancedComponent.vue';
 import ElementSearchIndex from '@/components/SearchElementComponent.vue';
 
-
 // Create the Vue Router instance
 const router = createRouter({
     history: createWebHistory(),
     routes: [
-        { path: '/home', component: ExampleIndex },
-        { path: '/', component: ExampleIndex },
-        { path: '/stand', component: AdvSearchIndex },
-        { path: '/misc', component: SearchIndex },
-        { path: '/search', component: ElementSearchIndex },
+        { path: '/vue/home', component: ExampleIndex },
+        { path: '/vue', component: ExampleIndex },
+        { path: '/vue/stand', component: AdvSearchIndex },
+        { path: '/vue/misc', component: SearchIndex },
+        { path: '/vue/search', component: ElementSearchIndex },
         // Add more routes as needed for other pages
     ],
 });
