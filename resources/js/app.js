@@ -1,22 +1,12 @@
 import './bootstrap';
 import { createApp } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router';
-import ExampleIndex from '@/components/ExampleComponent.vue';
-import SearchIndex from '@/components/SearchComponent.vue';
-import AdvSearchIndex from '@/components/SearchAdvancedComponent.vue';
-import ElementSearchIndex from '@/components/SearchElementComponent.vue';
+import Routes from './routes.js'
 
 // Create the Vue Router instance
 const router = createRouter({
     history: createWebHistory(),
-    routes: [
-        { path: '/vue/home', component: ExampleIndex },
-        { path: '/vue', component: ExampleIndex },
-        { path: '/vue/stand', component: AdvSearchIndex },
-        { path: '/vue/misc', component: SearchIndex },
-        { path: '/vue/search', component: ElementSearchIndex },
-        // Add more routes as needed for other pages
-    ],
+    routes: Routes,
 });
 const app = createApp({});
 //app.component('ex-component', ExampleIndex )

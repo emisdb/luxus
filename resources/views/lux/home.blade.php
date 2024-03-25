@@ -24,7 +24,7 @@
     </div>
 @endsection
 <script>
-    import ExampleComponent from "../../js/components/ExampleComponent";
+    import ExampleComponent from "../../js/components/hic/ExampleComponent";
 
     export default {
         components: {ExampleComponent}
