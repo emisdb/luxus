@@ -22,7 +22,8 @@ Two frontend pages were created.
 - [Layout module "admin"](https://github.com/emisdb/luxus/blob/master/resources/views/vue/layout/admin.blade.php) was used to provide the Admin panel for test display
 - [Vite config](https://github.com/emisdb/luxus/blob/master/vite.config.js) was ussed to provide vue dependancy
 - In the file [app.js](https://github.com/emisdb/luxus/blob/master/resources/js/app.js) all components and router were set.
-- In the file [routes.js](https://github.com/emisdb/luxus/blob/master/resources/js/routes.js) all components and router were set.
+- In the file [routes.js](https://github.com/emisdb/luxus/blob/master/resources/js/routes.js) all routes for vue-router were set.
+- [Side-bar view "sidebar"](https://github.com/emisdb/luxus/blob/master/resources/views/vue/sidebar.blade.php)  navigation was set for vue-router management 
 - Component [SearchAdvancedComponent](https://github.com/emisdb/luxus/blob/master/resources/js/components/hic/SearchAdvancedComponent.vue) was created for the table display
 - In the [routes/web.php](https://github.com/emisdb/luxus/blob/master/routes/web.php) special route for all vue elements was set: **/hic/{any?}**
 ### Vue 3 with Element UI solution
