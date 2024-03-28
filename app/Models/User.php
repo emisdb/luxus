@@ -18,11 +18,10 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'paid_to',
-        'paid_by',
-        'amount',
-        'trdate'
-     ];
+        'name',
+        'email',
+        'password',
+    ];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -43,4 +42,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    /**
+     * Default values for attributes.
+     *
+     * @var array
+     */
+    protected $attributes = [
+        'name' => 'test user',
+    ];
+
 }

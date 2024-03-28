@@ -8,9 +8,6 @@ use App\Http\Resources\PropertyDataResource;
 
 class PropertyDataController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
 
     protected $propertyData;
 
@@ -19,6 +16,9 @@ class PropertyDataController extends Controller
         $this->propertyData = $propertyData;
     }
 
+    /**
+     * Display a listing of the resource.
+     */
     public function index(Request $request)
     {
         $filters = $request->only($this->propertyData->getFilters());

@@ -55,6 +55,10 @@ class HomeController extends Controller
     {
         return view('vue.search',['header' => 'Vue Advanced Search']);
     }
+    public function noveo()
+    {
+        return view('nov.index',['header' => 'Task manager']);
+    }
     public function task()
     {
         $userId = request('user_id'); // Access the user_id parameter from the request

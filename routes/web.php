@@ -36,6 +36,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/stand', 'stand')->name('stand');
     Route::get('/task', 'task')->name('task');
     Route::get('/hic/{any?}', 'vue')->where('any', '.*')->name('hic');
+    Route::get('/noveo/{any?}', 'noveo')->where('any', '.*')->name('noveo');
 });
 
 Route::prefix('admin')->group(

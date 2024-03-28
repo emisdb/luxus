@@ -36,7 +36,7 @@ Two frontend pages were created.
 - To see the same solution in Element UI go [here](https://luxus.emisdb.ru/hic/search)
 - API endpoint is also [accessible](https://luxus.emisdb.ru/api/property-data)
 - Credentials 
-  - user: dentsi@yahoo.com
-  - password: 1q2w3e4r
+  - Email Address: test@test.org
+  - password: testtest
 - You can jump to these pages from the sidebar menu: Search, Element Search
 
