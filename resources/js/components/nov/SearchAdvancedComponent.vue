@@ -3,27 +3,16 @@
         <table class="table table-bordered table-striped table-hover">
             <thead>
             <tr>
+                <th>Дата</th>
+                <th>Задача</th>
+                <th>Описание</th>
+                <th>Кому</th>
+                <th>Завершить</th>
+                <th>Статус</th>
                 <th>
-                    Дата
-                </th>
-                <th>
-                    Задача
-                </th>
-                <th>
-                    Описание
-                </th>
-                <th>
-                    Кому
-                </th>
-                <th>
-                    Завершить
-                </th>
-                <th>
-                    Статус
-                </th>
-                <th>
-                    <button class="btn btn-sm btn-success" @click="search('')"><i
-                        class="mdi mdi-table-plus text-primary"></i></button>
+                    <router-link class="btn btn-sm btn-success" to="/noveo/add">
+                        <i class="mdi mdi-table-plus text-primary"></i>
+                    </router-link>
                 </th>
             </tr>
             </thead>
@@ -33,11 +22,12 @@
                 <td>{{ property.name }}</td>
                 <td>{{ property.description }}</td>
                 <td>{{ property.user }}</td>
-                <td>{{ property.completion_date }}</td>
+                <td>{{ formatDate(property.completion_date) }}</td>
                 <td>{{ property.status }}</td>
                 <td>
-                    <button class="btn btn-info btn-sm" @click="edit(property.id)"><i
-                        class="mdi mdi-table-edit text-primary"></i></button>
+                    <router-link class="btn btn-sm btn-info" :to="`/noveo/edit/${property.id}`">
+                        <i class="mdi mdi-table-edit text-primary"></i>
+                    </router-link>
                     <button class="btn btn-danger btn-sm" @click="remove(property.id)"><i
                         class="mdi mdi-table-remove text-primary"></i></button>
                 </td>
@@ -94,12 +84,10 @@ export default {
                 if (page) {
                     action = page + `&${query}`
                 }
-                console.log(action)
 
-                const response = await fetch(action);
-                const data = await response.json();
-                this.results = data.data;
-                this.links = data.links;
+                const response = await axios.get(action);
+                this.results = response.data.data;
+                this.links = response.data.links;
                 this.searching = false;
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -113,21 +101,32 @@ export default {
                 ('0' + (today.getMonth() + 1)).slice(-2) + "-" +
                 today.getFullYear()).toString()
         },
-        edit(id) {
-            alert('edit ' + id)
+        async remove(id) {
+            try {
+                this.searching = true;
+                var action = `/api/task/${id}`
+                const response = await axios.delete(action);
+                this.results = this.results.filter(record => record.id !== id);
+                this.searching = false;
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                // Set searching flag to false in case of error
+                this.searching = false;
+            }
         },
-        remove(id) {
-            alert('rm ' + id)
-        }
-    },
+     },
     watch: {
         paging(val) {
-             if (val) {
+            if (val) {
                 this.search(val);
             }
         }
+    },
+    mounted() {
+        this.search()
+        console.log('Component mounted.');
+    },
 
-    }
 }
 </script>
 <style scoped>
@@ -155,7 +154,7 @@ td.number, th.number {
     animation: fa-spin 2s infinite linear;
 }
 
-button i.text-primary {
+button i.text-primary, a i.text-primary {
     font-size: 1.4em;
     color: white !important;
     font-weight: bold;

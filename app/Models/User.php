@@ -51,5 +51,10 @@ class User extends Authenticatable
     protected $attributes = [
         'name' => 'test user',
     ];
+    public function options()
+    {
+        $users = $this->newQuery()->select(['id','name'])->get();
+        return response()->json($users);
+    }
 
 }

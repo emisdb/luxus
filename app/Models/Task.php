@@ -25,6 +25,7 @@ class Task extends Model
         'name',
         'description',
         'completion_date',
+        'user_id',
         'status',
     ];
 
@@ -56,6 +57,17 @@ class Task extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+    public function search($request){
+        $query = $this->newQuery()->with('user')->orderBy('created_at', 'desc');
+        foreach ($this->filters as $field => $filter ) {
+            if ($request->has($filter)) {
+                $query->where($field, $request->$filter);
+            }
+        }
+         // Paginate the results
+        $tasks = $query->paginate($request->per_page ?? 5);
+        return $tasks;
     }
 
 }

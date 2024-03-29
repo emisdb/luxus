@@ -17,7 +17,6 @@
             <button type="button" class="btn btn-secondary" @click="paginate('last')"><i class="mdi mdi-chevron-double-right text-primary"></i>
             </button>
         </div>
-        {{ links }}
     </div>
 </template>
 
