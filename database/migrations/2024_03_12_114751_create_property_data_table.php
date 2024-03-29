@@ -11,16 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('property_data', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->unsignedInteger('price');
-            $table->unsignedInteger('bedrooms');
-            $table->unsignedInteger('bathrooms');
-            $table->unsignedInteger('storeys');
-            $table->unsignedInteger('garages');
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('property_data')) {
+            Schema::create('property_data', function (Blueprint $table) {
+                $table->id();
+                $table->string('name');
+                $table->unsignedInteger('price');
+                $table->unsignedInteger('bedrooms');
+                $table->unsignedInteger('bathrooms');
+                $table->unsignedInteger('storeys');
+                $table->unsignedInteger('garages');
+                $table->timestamps();
+            });
+        }
     }
 
     /**
