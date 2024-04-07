@@ -63,10 +63,10 @@
 <script src="{{asset('admin/js/template.js')}}"></script>
 <!-- endinject -->
 <!-- Custom js for this page-->
-<script src="{{asset('admin/js/dashboard.js')}}"></script>
-<script src="{{asset('admin/js/data-table.js')}}"></script>
-<script src="{{asset('admin/js/jquery.dataTables.js')}}"></script>
-<script src="{{asset('admin/js/dataTables.bootstrap4.js')}}"></script>
+{{--<script src="{{asset('admin/js/dashboard.js')}}"></script>--}}
+{{--<script src="{{asset('admin/js/data-table.js')}}"></script>--}}
+{{--<script src="{{asset('admin/js/jquery.dataTables.js')}}"></script>--}}
+{{--<script src="{{asset('admin/js/dataTables.bootstrap4.js')}}"></script>--}}
 
 <!-- End custom js for this page-->
 

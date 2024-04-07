@@ -20,16 +20,18 @@
             <tr v-for="property in results" :key="property.id">
                 <td>{{ formatDate(property.created_at) }}</td>
                 <td>{{ property.name }}</td>
-                <td>{{ property.description }}</td>
+                <td>
+                        {{ property.description }}
+                 </td>
                 <td>{{ property.user }}</td>
                 <td>{{ formatDate(property.completion_date) }}</td>
-                <td>{{ property.status }}</td>
+                <td>{{ formatStatus(property.status) }}</td>
                 <td>
                     <router-link class="btn btn-sm btn-info" :to="`/noveo/edit/${property.id}`">
                         <i class="mdi mdi-table-edit text-primary"></i>
                     </router-link>
                     <button class="btn btn-danger btn-sm" @click="remove(property.id)"><i
-                        class="mdi mdi-table-remove text-primary"></i></button>
+                        class="mdi mdi-table-remove  text-primary"></i></button>
                 </td>
             </tr>
             </tbody>
@@ -51,6 +53,7 @@
 
 <script>
 import PaginatorComp from './PaginatorComponent.vue'
+import API from './../../api'
 
 export default {
     data() {
@@ -63,7 +66,8 @@ export default {
             results: [],
             links: {},
             searching: false,
-            paging: ''
+            paging: '',
+            showTooltip: false
         }
     },
     components: {
@@ -85,7 +89,7 @@ export default {
                     action = page + `&${query}`
                 }
 
-                const response = await axios.get(action);
+               const response = await API.get(action);
                 this.results = response.data.data;
                 this.links = response.data.links;
                 this.searching = false;
@@ -95,7 +99,18 @@ export default {
                 this.searching = false;
             }
         },
+        formatStatus(status) {
+            switch (status){
+                case 'new':
+                    return 'Новая'
+                case 'complete':
+                    return 'Завершена'
+                default:
+                    return 'В работе'
+            }
+        },
         formatDate(date) {
+            if (date == null) return '';
             var today = new Date(date)
             return (('0' + today.getDate()).slice(-2) + "-" +
                 ('0' + (today.getMonth() + 1)).slice(-2) + "-" +
@@ -105,7 +120,7 @@ export default {
             try {
                 this.searching = true;
                 var action = `/api/task/${id}`
-                const response = await axios.delete(action);
+                const response = await API.delete(action);
                 this.results = this.results.filter(record => record.id !== id);
                 this.searching = false;
             } catch (error) {
@@ -123,8 +138,11 @@ export default {
         }
     },
     mounted() {
-        this.search()
-        console.log('Component mounted.');
+        if(localStorage.getItem('token') == "" || localStorage.getItem('token') == null){
+            this.$router.push('/noveo/login')
+        }else {
+            this.search()
+        }
     },
 
 }
@@ -159,4 +177,5 @@ button i.text-primary, a i.text-primary {
     color: white !important;
     font-weight: bold;
 }
+
 </style>

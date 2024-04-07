@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreTaskRequest;
-use App\Http\Requests\UpdateTaskRequest;
 use App\Models\Task;
 use App\Http\Resources\TaskResource;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class TaskController extends Controller
 {
@@ -34,9 +34,16 @@ class TaskController extends Controller
      */
     public function store(StoreTaskRequest $request)
     {
-        $task = Task::create($request->validated());
+        try {
+            $validatedData = $request->validated();
+            $task = Task::create($validatedData);
+            return response()->json( new TaskResource($task), 200 );
 
-        return new TaskResource($task);
+            // Return success response or redirect
+        } catch (ValidationException $e) {
+            // Validation failed, handle the error
+            return response()->json(['errors' => $e->errors()], 422);
+        }
     }
 
     /**
@@ -44,9 +51,16 @@ class TaskController extends Controller
      */
     public function update(StoreTaskRequest $request, Task $task)
     {
-        $task->update($request->validated());
+        try {
+            $validatedData = $request->validated();
+            $task->update($validatedData);
+           return response()->json(data: new TaskResource($task),status: 200 );
 
-        return new TaskResource($task);
+            // Return success response or redirect
+        } catch (ValidationException $e) {
+            // Validation failed, handle the error
+            return response()->json(['errors' => $e->errors()], 422);
+        }
     }
 
       /**

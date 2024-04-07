@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\TaskPendingMail;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -14,7 +16,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $res = $this->middleware('auth:web', ['except' => ['login']]);
     }
 
     /**
@@ -54,10 +56,6 @@ class HomeController extends Controller
     public function vue()
     {
         return view('vue.search',['header' => 'Vue Advanced Search']);
-    }
-    public function noveo()
-    {
-        return view('nov.index',['header' => 'Task manager']);
     }
     public function task()
     {

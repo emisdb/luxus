@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NoveoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 /*
@@ -12,6 +13,7 @@ use App\Http\Controllers\HomeController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 Auth::routes();
 /*
 Route::view('/{any}', 'home')
@@ -22,6 +24,7 @@ Route::view('/{any}', 'home')
 Route::get('/', function () {
     return view('home');
 });
+
 Route::get('/ele', function () {
     return view('element.message');
 });
@@ -35,9 +38,11 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/search', 'search')->name('search');
     Route::get('/stand', 'stand')->name('stand');
     Route::get('/task', 'task')->name('task');
+    Route::get('/mail', 'mail')->name('mail');
     Route::get('/hic/{any?}', 'vue')->where('any', '.*')->name('hic');
-    Route::get('/noveo/{any?}', 'noveo')->where('any', '.*')->name('noveo');
 });
+
+Route::get('/noveo/{any?}', [NoveoController::class, 'index'])->where('any', '.*')->name('noveo');
 
 Route::prefix('admin')->group(
     function () {

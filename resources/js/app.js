@@ -16,3 +16,4 @@ app.use(router);
 
 // Mount the app to the HTML element with the id 'app'
 app.mount('#app');
+export default router;

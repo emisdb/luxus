@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use App\Jobs\MailTaskPendingJob;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
 class Task extends Model
 {
@@ -69,5 +71,17 @@ class Task extends Model
         $tasks = $query->paginate($request->per_page ?? 5);
         return $tasks;
     }
+    public static function sendPendingEmails()
+    {
+        $overdueTasks = self::where('completion_date', '<', Carbon::today())
+            ->whereNotNull('completion_date')
+            ->where('status', '!=', self::STATUS_COMPLETE)
+            ->get();
+
+        foreach ($overdueTasks as $task) {
+            MailTaskPendingJob::dispatch($task->user, $task);
+        }
+    }
+
 
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -24,5 +25,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::resource('property-data', PropertyDataController::class);
-Route::resource('task', TaskController::class);
+Route::resource('task', TaskController::class)->middleware('jwt.auth');
 Route::get('/users', [UserController::class, 'index']);
+
+Route::group([
+    'middleware' => 'api',
+    'prefix' => 'auth'
+], function ($router) {
+    Route::post('login', [AuthController::class,'login']);
+    Route::post('logout', [AuthController::class,'logout']);
+    Route::post('refresh', [AuthController::class,'refresh']);
+    Route::post('me', [AuthController::class,'me']);
+});
+
