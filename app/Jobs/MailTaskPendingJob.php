@@ -4,6 +4,7 @@ namespace App\Jobs;
 
 use App\Mail\TaskPendingMail;
 use App\Models\Task;
+use App\Models\TaskNotification;
 use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -34,6 +35,10 @@ class MailTaskPendingJob implements ShouldQueue
     public function handle(): void
     {
         Mail::to($this->user->email)->send(new TaskPendingMail($this->user, $this->task));
+        TaskNotification::create([
+            'task_id' => $this->task->id,
+            'message' => 'Notification email sent to ' . $this->user->email,
+        ]);
 
     }
 }

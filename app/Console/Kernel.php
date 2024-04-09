@@ -16,6 +16,7 @@ class Kernel extends ConsoleKernel
         $schedule->call(function () {
             Task::sendPendingEmails();
         })->daily();
+
     }
 
     /**

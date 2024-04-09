@@ -79,6 +79,7 @@ class Task extends Model
             ->get();
 
         foreach ($overdueTasks as $task) {
+//            var_dump($task);
             MailTaskPendingJob::dispatch($task->user, $task);
         }
     }
