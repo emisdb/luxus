@@ -1,9 +1,7 @@
-    @page { size: 8.27in 11.69in; margin-left: 1in; margin-right: 1.04in; margin-top: 1.04in; margin-bottom: 1.01in } p { line-height: 115%; text-align: left; orphans: 2; widows: 2; margin-left: 0.01in; margin-bottom: 0.1in; direction: ltr; background: transparent } a:link { color: #000080; text-decoration: underline }
-
-PHP Developer Test
+ 
+#PHP Developer Test
 
 Background
-
 Demonstrate your skills using a varied range of technologies our company commonly uses.
 
 We’ll be assessing task completeness as well as code quality.
@@ -31,8 +29,9 @@ Bonus (optional)
 
 *   [Element UI](https://element.eleme.io/): Use Element-UI to style the frontend section.
 
+##Here is [Solution](https://github.com/emisdb/luxus/blob/master/hicaliber/README.md)
 
-Tasks
+##Tasks
 
 **API**
 
