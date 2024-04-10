@@ -94,6 +94,9 @@
    1. Job [app/Jobs/MailTaskPendingJob.php](https://github.com/emisdb/luxus/blob/master/app/Jobs/MailTaskPendingJob.php#L35) создана для выполнения этих задач
    2. Отправка по почте сообщения [app/Mail/TaskPendingMail.php](https://github.com/emisdb/luxus/blob/master/app/Mail/TaskPendingMail.php)
    3. создание записи в БД через модель [app/Models/TaskNotification.php](https://github.com/emisdb/luxus/blob/master/app/Models/TaskNotification.php)
+3. Проект был обеспечен тестами
+   1. Тест аутентификации через токен JWT [tests/Feature/Auth/AuthControllerTest.php](https://github.com/emisdb/luxus/blob/master/tests/Feature/Auth/AuthControllerTest.php)
+   2. Тест данных и CRUD операций API [](https://github.com/emisdb/luxus/blob/master/tests/Feature/Auth/AuthControllerTest.php)
 
     
 
