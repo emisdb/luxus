@@ -72,17 +72,7 @@ class PropertyData extends Model
     {
         foreach ($this->filtersToFields as $filterField => $filter) {
             if (is_array($filter)) {
-                if (isset($filter[0])) {
-                    if (isset($filter[1])) {
-                        $query->whereBetween($filterField, [$filter[0], $filter[1]]);
-                    } else {
-                        $query->where($filterField, '>=', $filter[0]);
-                    }
-                } else {
-                    if (isset($filter[1])) {
-                        $query->where($filterField, '<=', $filter[1]);
-                    }
-                }
+                $this->filterIntervalValue($query, $filterField, $filter[0] ?? null, $filter[1] ?? null);
             } else {
                 if(in_array($filterField,$this->likes)){
                     $query->where($filterField, 'like', '%' . trim($filter). '%');
@@ -92,7 +82,21 @@ class PropertyData extends Model
             }
         }
         return $query;
+    }
 
+    private function filterIntervalValue(Builder $query, $field, $filterFrom, $filerTo)
+    {
+        if (!is_null($filterFrom)) {
+            if (!is_null($filerTo)) {
+                $query->whereBetween($field, [$filterFrom, $filerTo]);
+            } else {
+                $query->where($field, '>=', $filterFrom);
+            }
+        } else {
+            if (!is_null($filerTo)) {
+                $query->where($field, '<=', $filerTo);
+            }
+        }
     }
 
     /**
