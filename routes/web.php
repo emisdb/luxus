@@ -3,6 +3,8 @@
 use App\Http\Controllers\NoveoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PaymentController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -51,6 +53,11 @@ Route::prefix('admin')->group(
         Route::get('tree',[App\Http\Controllers\AdminController::class, 'tree'])->name('tree') ;
     }
 );
+
+Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
+Route::post('/payment/pay', [PaymentController::class, 'pay'])->name('payment.pay');
+Route::get('/payment/status', [PaymentController::class, 'status'])->name('payment.status');
+
 
 
 
