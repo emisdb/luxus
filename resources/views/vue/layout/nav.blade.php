@@ -26,27 +26,27 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="notificationDropdown">
                     <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
-                    <a class="dropdown-item">
+                    <a class="dropdown-item" href="{{ route('home') }}">
                         <div class="item-thumbnail">
                             <div class="item-icon bg-success">
                                 <i class="mdi mdi-information mx-0"></i>
                             </div>
                         </div>
                         <div class="item-content">
-                            <h6 class="font-weight-normal">Sorts are restructed</h6>
+                            <h6 class="font-weight-normal">Go to Luxus</h6>
                             <p class="font-weight-light small-text mb-0 text-muted">
                                 Just now
                             </p>
                         </div>
                     </a>
-                    <a class="dropdown-item">
+                    <a class="dropdown-item"  href="{{ route('noveo') }}">
                         <div class="item-thumbnail">
                             <div class="item-icon bg-warning">
                                 <i class="mdi mdi-settings mx-0"></i>
                             </div>
                         </div>
                         <div class="item-content">
-                            <h6 class="font-weight-normal">Clients are deleted</h6>
+                            <h6 class="font-weight-normal">Go to Noveo</h6>
                             <p class="font-weight-light small-text mb-0 text-muted">
                                 3 hours ago
                             </p>
