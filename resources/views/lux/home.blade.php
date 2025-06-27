@@ -16,7 +16,7 @@
                     <div id="app">
                         <router-view></router-view>
                     </div>
-                    {{ __('You are logged in here !') }}
+                    {{ __('You are logged in on this page !') }}
                 </div>
 
             </div>

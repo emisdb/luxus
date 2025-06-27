@@ -29,14 +29,18 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-{{--    @vite('resources/css/app.css')--}}
-{{--    @livewireStyles--}}
+    {{--    @vite('resources/css/app.css')--}}
+    {{--    @livewireStyles--}}
 </head>
 <body>
 <div class="container-scroller">
     @include('lux.layout.nav')
     <div class="container-fluid page-body-wrapper">
-        @include('lux.layout.sidebar_lux')
+        @if (($menu ?? 0) == 0)
+            @include('lux.layout.sidebar_lux')
+        @else
+            @include('lux.layout.sidebar')
+        @endif
         <div class="main-panel">
             <div class="content-wrapper">
                 @yield('content')

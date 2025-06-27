@@ -29,7 +29,7 @@
                     <a class="dropdown-item" href="{{ route('home') }}">
                         <div class="item-thumbnail">
                             <div class="item-icon bg-success">
-                                <i class="mdi mdi-information mx-0"></i>
+                                <i class="mdi mdi-flower-tulip mdi-hat-fedora mx-0"></i>
                             </div>
                         </div>
                         <div class="item-content">
@@ -42,7 +42,7 @@
                     <a class="dropdown-item" href="{{ route('hic') }}">
                         <div class="item-thumbnail">
                             <div class="item-icon bg-success">
-                                <i class="mdi mdi-atlassian mx-0"></i>
+                                <i class="mdi mdi-hat-fedora mx-0"></i>
                             </div>
                         </div>
                         <div class="item-content">
