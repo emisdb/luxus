@@ -24,6 +24,12 @@
                     <span class="menu-title">Tree</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('payment.index') }}">
+                    <i class="mdi mdi-credit-card menu-icon"></i>
+                    <span class="menu-title">Payment</span>
+                </a>
+            </li>
              <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <i class="mdi mdi-circle-outline menu-icon"></i>
@@ -32,7 +38,7 @@
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ route('vue') }}">Vue Tests</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('task') }}">Task</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{ url('/admin') }}">Documents</a></li>
               </ul>
             </div>

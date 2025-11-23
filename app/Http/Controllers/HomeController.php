@@ -51,7 +51,7 @@ class HomeController extends Controller
     }
     public function stand()
     {
-        return view('lux.search',['header' => 'Advanced Search']);
+        return view('lux.search',['header' => 'Advanced Search','menu'=>1]);
     }
     public function vue()
     {

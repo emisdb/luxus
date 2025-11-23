@@ -57,6 +57,7 @@ Route::prefix('admin')->group(
 Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
 Route::post('/payment/pay', [PaymentController::class, 'pay'])->name('payment.pay');
 Route::get('/payment/status', [PaymentController::class, 'status'])->name('payment.status');
+Route::post('/payment/webhook/stripe', [PaymentController::class, 'webhook'])->name('payment.webhook.stripe');
 
 
 
