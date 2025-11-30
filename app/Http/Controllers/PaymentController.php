@@ -12,8 +12,16 @@ class PaymentController extends Controller
 {
     public function __construct()
     {
-        // Set Stripe API key (you should move this to .env file)
-        Stripe::setApiKey(env('STRIPE_SECRET_KEY', 'sk_test_51Q...')); // Replace with your Stripe secret key
+        /**
+         * Set Stripe API key from environment variable
+         *
+         * To configure Stripe:
+         * 1. Get your Stripe Secret Key from: Stripe Dashboard → Developers → API keys → Secret key
+         * 2. Add it to your .env file as: STRIPE_SECRET_KEY=sk_test_...
+         *
+         * For detailed setup instructions, see: PAYMENT_SETUP.md
+         */
+        Stripe::setApiKey(env('STRIPE_SECRET_KEY', 'sk_test_51Q...'));
     }
 
     public function index()
@@ -47,7 +55,16 @@ class PaymentController extends Controller
 
     private function processMolliePayment($formatted_number)
     {
-        $apiKey = env('MOLLIE_API_KEY', 'test_djMStRFvKuTbamgd6s9HzrJE2jPDTJ');
+        /**
+         * Get Mollie API key from environment variable
+         *
+         * To configure Mollie:
+         * 1. Get your API key from: Mollie Dashboard → Developers → API keys
+         * 2. Add it to your .env file as: MOLLIE_API_KEY=test_...
+         *
+         * For detailed setup instructions, see: PAYMENT_SETUP.md
+         */
+        $apiKey = env('MOLLIE_API_KEY', 'test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
         $paymentData = [
             "amount" => [
                 "currency" => "EUR",
@@ -94,7 +111,7 @@ class PaymentController extends Controller
                     'price_data' => [
                         'currency' => 'eur',
                         'product_data' => [
-                            'name' => 'Payment for Outspot',
+                            'name' => 'Payment for Me',
                         ],
                         'unit_amount' => (int)($amount * 100), // Stripe uses cents
                     ],
@@ -136,7 +153,18 @@ class PaymentController extends Controller
 
     public function webhook(Request $request)
     {
-        // Handle Stripe webhook for payment confirmation
+        /**
+         * Handle Stripe webhook for payment confirmation
+         *
+         * To configure Stripe webhook:
+         * 1. Go to: Stripe Dashboard → Developers → Webhooks
+         * 2. Add endpoint: https://your-domain.com/payment/webhook/stripe
+         * 3. Select event: checkout.session.completed
+         * 4. Copy the webhook signing secret
+         * 5. Add it to your .env file as: STRIPE_WEBHOOK_SECRET=whsec_...
+         *
+         * For detailed setup instructions, see: PAYMENT_SETUP.md
+         */
         $payload = $request->getContent();
         $sig_header = $request->header('Stripe-Signature');
         $endpoint_secret = env('STRIPE_WEBHOOK_SECRET');

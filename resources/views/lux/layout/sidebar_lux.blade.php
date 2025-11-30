@@ -7,6 +7,12 @@
             </a>
           </li>
             <li class="nav-item">
+                <a class="nav-link" href="{{ route('payment.index') }}">
+                    <i class="mdi mdi-credit-card menu-icon"></i>
+                    <span class="menu-title">Payment</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="{{ route('stand') }}">
                     <i class="mdi mdi-grid-large menu-icon"></i>
                     <span class="menu-title">Standing</span>
