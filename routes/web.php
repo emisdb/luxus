@@ -33,7 +33,7 @@ Route::get('/ele', function () {
 
 Route::controller(HomeController::class)->group(function () {
     Route::get('/home/', 'index')->name('home');
-    Route::get('/sorts', 'sorts')->name('sorts');
+//    Route::get('/sorts', 'sorts')->name('sorts');
     Route::get('/clients', 'clients')->name('clients');
     Route::get('/plants', 'plants')->name('plants');
     Route::get('/misc', 'misc')->name('misc');
@@ -58,6 +58,7 @@ Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index
 Route::post('/payment/pay', [PaymentController::class, 'pay'])->name('payment.pay');
 Route::get('/payment/status', [PaymentController::class, 'status'])->name('payment.status');
 Route::post('/payment/webhook/stripe', [PaymentController::class, 'webhook'])->name('payment.webhook.stripe');
+Route::get('/sorts', function () {    return view('lux.tree',['header' => 'Sorts']);})->name('sorts');
 
 
 
